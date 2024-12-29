@@ -1,4 +1,4 @@
-package Bookstore.one.jdbc;
+package Library.one.jdbc;
 
 import java.util.List;
 
@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import Bookstore.one.Book.Book;
-import Bookstore.one.springdatajpa.BookRepository;
-//import jakarta.transaction.Transactional;
-import Bookstore.one.start.BookService;
+import Library.one.Book.Book;
+import Library.one.springdatajpa.BookRepository;
+import Library.one.start.BookService;
 
 
 @RestController

@@ -1,4 +1,4 @@
-package Bookstore.one.Book;
+package Library.one.Book;
 
 import java.sql.Timestamp;
 import java.util.List;

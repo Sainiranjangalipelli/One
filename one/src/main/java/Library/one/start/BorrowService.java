@@ -1,4 +1,4 @@
-package Bookstore.one.start;
+package Library.one.start;
 
 import java.util.stream.Stream;
 
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import Bookstore.one.Book.Book;
-import Bookstore.one.Book.Borrow;
-import Bookstore.one.Book.User;
-import Bookstore.one.springdatajpa.BorrowRepository;
+import Library.one.Book.Book;
+import Library.one.Book.Borrow;
+import Library.one.Book.User;
+import Library.one.springdatajpa.BorrowRepository;
 
 @Service
 public class BorrowService {
@@ -38,9 +38,9 @@ public class BorrowService {
 		return null;
 	}
 	
-	public Borrow findIfAlreadyBorrowed(int bookid,int userid)
+	public Borrow findIfAlreadyBorrowed(int bookId,int userId)
 	{
-		return borrowRepository.findIfAlreadyBorrowed(bookid,userid).stream().findAny().orElseThrow(null);
+		return borrowRepository.findIfAlreadyBorrowed(bookId,userId).stream().findAny().orElseThrow(null);
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRES_NEW)

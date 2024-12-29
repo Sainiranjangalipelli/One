@@ -1,4 +1,4 @@
-package Bookstore.one.start;
+package Library.one.start;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import Bookstore.one.Book.Book;
-import Bookstore.one.springdatajpa.BookRepository;
+import Library.one.Book.Book;
+import Library.one.springdatajpa.BookRepository;
 
 @Service
 @Transactional

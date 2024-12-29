@@ -1,4 +1,4 @@
-package Bookstore.one.start;
+package Library.one.start;
 
 import java.util.List;
 import java.util.Objects;
@@ -10,10 +10,11 @@ import org.springframework.transaction.annotation.Propagation;
 
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import Bookstore.one.springdatajpa.UserRepository;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import Bookstore.one.Book.User;
+import Library.one.Book.User;
+import Library.one.springdatajpa.UserRepository;
 
 @Service
 @Transactional
@@ -28,7 +29,7 @@ public class UserService {
 		this.userRepository=userRepository;
 	}
 	
-	public List<User> getAllPatrons(){
+	public List<User> getAllUsers(){
 		return userRepository.findAll();
 	}
 	

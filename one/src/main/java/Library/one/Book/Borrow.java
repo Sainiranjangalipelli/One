@@ -1,4 +1,4 @@
-package Bookstore.one.Book;
+package Library.one.Book;
 
 import java.sql.Timestamp;
 
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "Borrows")
+@Table(name = "Borrow")
 public class Borrow {
 	
 	@Id

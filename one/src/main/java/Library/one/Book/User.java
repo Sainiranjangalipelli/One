@@ -1,4 +1,4 @@
-package Bookstore.one.Book;
+package Library.one.Book;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "User")
+@Table(name = "Student")
 public class User {
 
     @Id
