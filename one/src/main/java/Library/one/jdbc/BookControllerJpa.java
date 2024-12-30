@@ -18,6 +18,7 @@ import Library.one.start.BookService;
 
 @RestController
 @Component
+@RequestMapping("/api/books/")
 public class BookControllerJpa {
 	
 	@Autowired
@@ -46,7 +47,7 @@ public class BookControllerJpa {
 		return book;
 	}
 	
-	@RequestMapping(value="get-author-books")
+	@RequestMapping(value="get-author-books",method = RequestMethod.GET)
 	public List<Book> getBooksByAuthorName(String name){
 		List<Book> books = bookservice.getBooksByAuthorName(name);
 		return books;
@@ -59,7 +60,7 @@ public class BookControllerJpa {
 		
 	}
 	
-	@RequestMapping(value="all-books")
+	@RequestMapping(value="all-books",method = RequestMethod.GET)
 	public List<Book> allBooks(){
 		List<Book> books = bookservice.allBooks();
 		return books;
