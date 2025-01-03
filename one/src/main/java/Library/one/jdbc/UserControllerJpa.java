@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestController 
-@RequestMapping("/api/users/")
+@RequestMapping("/api/users")
 public class UserControllerJpa {
 	
 	@Autowired
@@ -40,7 +41,7 @@ public class UserControllerJpa {
 	
 	 @ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(value="/add-user",method = RequestMethod.POST)
-	public void addUser(@RequestBody User user) {
+	public void addUser(@ModelAttribute User user) {
 		userService.addUser(user);
 	}
 	 

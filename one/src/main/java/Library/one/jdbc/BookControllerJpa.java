@@ -1,24 +1,25 @@
 package Library.one.jdbc;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import Library.one.Book.Book;
 import Library.one.springdatajpa.BookRepository;
 import Library.one.start.BookService;
 
-
-@RestController
-@Component
-@RequestMapping("/api/books/")
+@Controller
 public class BookControllerJpa {
 	
 	@Autowired
@@ -61,9 +62,10 @@ public class BookControllerJpa {
 	}
 	
 	@RequestMapping(value="all-books",method = RequestMethod.GET)
-	public List<Book> allBooks(){
+	public String allBooks(ModelMap model){
 		List<Book> books = bookservice.allBooks();
-		return books;
+		model.addAttribute("books", books);
+		return "UserBooks";
 	}
 	
 	@RequestMapping(value="update-book",method = RequestMethod.POST)

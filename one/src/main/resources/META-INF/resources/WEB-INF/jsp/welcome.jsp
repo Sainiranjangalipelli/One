@@ -21,10 +21,11 @@
 	</body> -->
 
 		<div class="container">
-			<h1>Welcome ${name}</h1>
+			<!--<h1>Welcome ${name}</h1>-->
 			<hr>
 			<!--<div>Your Name:${name}</div>-->
-			<a href="list-todos">Manage</a> your todos
+			<a href="AddUser.jsp">Register as User</a>
+			<a href="LoginUser.jsp">Login as User</a>
 			<!--<div>Your password:${password}</div>-->
 		</div>
 

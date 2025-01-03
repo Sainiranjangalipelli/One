@@ -45,9 +45,9 @@ public class Book {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "isbn", length = 50, nullable = false, unique = true)
-    @NotNull(message = "Book ISBN must not be Null")
-    private String isbn;
+//	@Column(name = "isbn", length = 50, nullable = false, unique = true)
+//    @NotNull(message = "Book ISBN must not be Null")
+//    private String isbn;
 
     @Column(name = "publication_year")
     @NotNull(message = "Book publication year must not be Null")
@@ -58,7 +58,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookName=" + bookName + ", author=" + author + ", description=" + description
-				+ ", isbn=" + isbn + ", publicationYear=" + publicationYear + ", quantity=" + quantity + "]";
+				+ ", publicationYear=" + publicationYear + ", quantity=" + quantity + "]";
 	}
 
 	public int getId() {
@@ -93,13 +93,13 @@ public class Book {
 		this.description = description;
 	}
 
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
+//	public String getIsbn() {
+//		return isbn;
+//	}
+//
+//	public void setIsbn(String isbn) {
+//		this.isbn = isbn;
+//	}
 
 	public Timestamp getPublicationYear() {
 		return publicationYear;
