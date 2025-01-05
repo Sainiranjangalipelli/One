@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import Library.one.Book.Book;
 import Library.one.springdatajpa.BookRepository;
@@ -61,8 +63,12 @@ public class BookControllerJpa {
 		
 	}
 	
-	@RequestMapping(value="all-books",method = RequestMethod.GET)
-	public String allBooks(ModelMap model){
+	@RequestMapping(value="/all-books",method = RequestMethod.GET)
+	public String allBooks(ModelMap model,@SessionAttribute(value = "userId") int userId){
+		System.out.println(userId);
+		System.out.println(userId);
+		System.out.println(userId);
+		System.out.println(userId);
 		List<Book> books = bookservice.allBooks();
 		model.addAttribute("books", books);
 		return "UserBooks";

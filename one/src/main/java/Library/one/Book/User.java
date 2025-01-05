@@ -39,7 +39,7 @@ public class User {
     @NotNull(message = "user name must not be Null")
     private String name;
 
-    @Column(name = "address", length = 300)
+	@Column(name = "address", length = 300)
     private String address;
 
     @Column(name = "phone_number", length = 50)
@@ -48,6 +48,19 @@ public class User {
     @Column(name = "email_address", length = 100)
     @Email(message = "user Email must be valid")
     private String emailAddress;
+    
+    public User() {
+    }
+    
+    public User(Long id, @NotNull(message = "user name must not be Null") String name, String address,
+			String phoneNumber, @Email(message = "user Email must be valid") String emailAddress) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.emailAddress = emailAddress;
+	}
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore

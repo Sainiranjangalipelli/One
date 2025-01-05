@@ -1,24 +1,49 @@
-		<%@ include file="common/header.jspf" %>
-		
-		<%@ include file="common/navigation.jspf" %>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>
+
 <div class="container">
-<body>
-    <h2>Register</h2>
-    <form action="/api/users/add-user" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <h1>Enter Your Details</h1>
+    <form:form method="post" action="/add-user" modelAttribute="user">
+        <fieldset class="mb-3">
+            <form:label path="name">Name</form:label>
+            <form:input type="text" path="name" required="required" />
+            <form:errors path="name" cssClass="text-warning" />
+        </fieldset>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address">
+        <fieldset class="mb-3">
+            <form:label path="address">Address</form:label>
+            <form:input type="text" path="address" required="required" />
+            <form:errors path="address" cssClass="text-warning" />
+        </fieldset>
 
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber">
+        <fieldset class="mb-3">
+            <form:label path="phoneNumber">Phone Number</form:label>
+            <form:input type="text" path="phoneNumber" required="required" />
+            <form:errors path="phoneNumber" cssClass="text-warning" />
+        </fieldset>
 
-        <label for="emailAddress">Email Address:</label>
-        <input type="email" id="emailAddress" name="emailAddress" required>
+        <fieldset class="mb-3">
+            <form:label path="emailAddress">Email Address</form:label>
+            <form:input type="text" path="emailAddress" required="required" />
+            <form:errors path="emailAddress" cssClass="text-warning" />
+        </fieldset>
 
-        <button type="submit">Add User</button>
-    </form>
-</body>
+        <form:input type="hidden" path="id" />
+
+        <input type="submit" class="btn btn-success" />
+    </form:form>
 </div>
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="/webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
 <%@ include file="common/footer.jspf" %>
+
+
+<!-- 
+<script type="text/javascript">
+    $('#targetDate').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+</script>
+ -->

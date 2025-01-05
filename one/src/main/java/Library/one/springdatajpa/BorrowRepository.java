@@ -16,4 +16,7 @@ public interface BorrowRepository extends JpaRepository<Borrow, Integer> {
 	
 	@Query("select b from Borrow b where b.book.id = :bookId and b.user.id=:userId and b.isReturned = false")
 	List<Borrow> findIfAlreadyBorrowed(@Param("bookId") int bookid, @Param("userId") int userid );
+	
+	@Query("select b.book.id from Borrow b where b.user.id=:userId")
+	List<Integer> findByUserId(int userId);
 }

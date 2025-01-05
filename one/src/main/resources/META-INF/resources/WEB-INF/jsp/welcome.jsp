@@ -24,8 +24,8 @@
 			<!--<h1>Welcome ${name}</h1>-->
 			<hr>
 			<!--<div>Your Name:${name}</div>-->
-			<a href="AddUser.jsp">Register as User</a>
-			<a href="LoginUser.jsp">Login as User</a>
+			<a href="/valid-user">Register as User</a> <br><br>
+			<a href="/LoginUser">Login as User</a>
 			<!--<div>Your password:${password}</div>-->
 		</div>
 
