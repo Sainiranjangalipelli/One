@@ -21,6 +21,7 @@
 				</thead>
 				<tbody>		
 					<c:forEach items="${books}" var="book">
+					<c:if test="${book.quantity > 0}">
 						<tr>
 							<!--<td>${todo.id}</td>-->
 							<td>${book.bookName}</td>
@@ -33,6 +34,7 @@
 						<!--  	<td><a href="delete-book/${todo.id}" class="btn btn-warning">DELETE</a></td>
 							<td><a href="update-book/${todo.id}" class="btn btn-success">UPDATE</a></td> -->
 						</tr>
+					</c:if>
 					</c:forEach>
 				</tbody>
 			</table>

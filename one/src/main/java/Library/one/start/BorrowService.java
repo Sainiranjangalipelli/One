@@ -30,17 +30,38 @@ public class BorrowService {
 	
 	public List<Book> getBorrowedBooks(int userid)
 	{
-		User user = userService.getUserById(userid);
+//		User user = userService.getUserById(userid);
+//		
+//		if (user == null) {
+//	        throw new IllegalArgumentException("User not found with ID: " + userid);
+//	    }
+//		
+//		List<Integer> bookIds = borrowRepository.findByUserId(userid);
+//
+//		List<Book> books = bookRepository.findAllById(bookIds);
+//
+//	    return books;
 		
-		if (user == null) {
+		User user = userService.getUserById(userid);
+
+	    if (user == null) {
 	        throw new IllegalArgumentException("User not found with ID: " + userid);
 	    }
-		
-		List<Integer> bookIds = borrowRepository.findByUserId(userid);
 
-		List<Book> books = bookRepository.findAllById(bookIds);
+	    // Retrieve book ID and isReturned status pairs
+	    List<Object[]> bookData = borrowRepository.findBookIdAndIsReturnedByUserId(userid);
+
+	    // Extract book IDs where isReturned is false
+	    List<Integer> bookIds = bookData.stream()
+	                                    .filter(data -> !(Boolean) data[1]) // Check isReturned status
+	                                    .map(data -> (Integer) data[0])     // Extract book ID
+	                                    .collect(Collectors.toList());
+
+	    // Fetch the books by their IDs
+	    List<Book> books = bookRepository.findAllById(bookIds);
 
 	    return books;
+		
 	}
 	
 //	need to implement borrowing and returning

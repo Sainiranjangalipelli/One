@@ -50,10 +50,11 @@ public class BorrowControllerJpa {
 		return "redirect:/getbooks";
 	}
 	
-	@RequestMapping(value="/user/{userid}/book/{bookid}",method = RequestMethod.PUT)
-	public void returnBook(@PathVariable int userid,@PathVariable int bookid)
+	@RequestMapping(value="/user/book/{bookid}",method = RequestMethod.GET)
+	public String returnBook(@PathVariable int bookid,@SessionAttribute("userId") int userid,ModelMap model)
 	{
 		borrowService.returnBook(bookid, userid);
+		return "redirect:/getbooks";
 	}
 	
 }

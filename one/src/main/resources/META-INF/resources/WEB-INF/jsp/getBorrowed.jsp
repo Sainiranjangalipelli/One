@@ -24,7 +24,7 @@
 							<td>${book.bookName}</td>
 							<td>${book.author}</td>
 							<td>${book.description}</td>
-						 	<td><a href="" class="btn btn-success">Return</a></td>  
+						 	<td><a href="/user/book/${book.id}" class="btn btn-success">Return</a></td>  
 						<!--  	<td><a href="update-todo?id=${todo.id}" class="btn btn-success">UPDATE</a></td> btn btn-warning  -->
 						</tr>
 					</c:forEach>

@@ -44,6 +44,9 @@ public class Borrow {
 
     @Column(name = "return_date")
     private Timestamp returnDate;
+    
+    public Borrow() {
+    }
 
     public Long getId() {
 		return id;
