@@ -19,6 +19,9 @@ public interface BorrowRepository extends JpaRepository<Borrow, Integer> {
 	
 //	@Query("select b.book.id from Borrow b where b.user.id=:userId")
 //	List<Integer> findByUserId(int userId);
-	@Query("SELECT b.book.id, b.isReturned FROM Borrow b WHERE b.user.id = :userId")
-	List<Object[]> findBookIdAndIsReturnedByUserId(@Param("userId") int userId);
+//	@Query("SELECT b.book.id, b.isReturned FROM Borrow b WHERE b.user.id = :userId")
+//	List<Object[]> findBookIdAndIsReturnedByUserId(@Param("userId") int userId);
+	@Query("SELECT b.book.id, b.isReturned, count(*) FROM Borrow b WHERE b.user.id = :userId GROUP BY b.book.id, b.isReturned")
+	List<Object[]> findBookIdAndIsReturnedWithCountByUserId(@Param("userId") int userId);
+
 }

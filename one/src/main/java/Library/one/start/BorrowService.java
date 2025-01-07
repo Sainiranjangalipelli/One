@@ -1,5 +1,6 @@
 package Library.one.start;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -49,7 +50,8 @@ public class BorrowService {
 	    }
 
 	    // Retrieve book ID and isReturned status pairs
-	    List<Object[]> bookData = borrowRepository.findBookIdAndIsReturnedByUserId(userid);
+	    List<Object[]> bookData = borrowRepository.findBookIdAndIsReturnedWithCountByUserId(userid);
+
 
 	    // Extract book IDs where isReturned is false
 	    List<Integer> bookIds = bookData.stream()

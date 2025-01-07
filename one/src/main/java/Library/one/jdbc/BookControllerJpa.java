@@ -65,10 +65,10 @@ public class BookControllerJpa {
 	
 	@RequestMapping(value="/all-books",method = RequestMethod.GET)
 	public String allBooks(ModelMap model,@SessionAttribute(value = "userId") int userId){
-		System.out.println(userId);
-		System.out.println(userId);
-		System.out.println(userId);
-		System.out.println(userId);
+//		System.out.println(userId);
+//		System.out.println(userId);
+//		System.out.println(userId);
+//		System.out.println(userId);
 		List<Book> books = bookservice.allBooks();
 		model.addAttribute("books", books);
 		return "UserBooks";

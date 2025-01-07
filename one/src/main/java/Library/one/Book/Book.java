@@ -54,6 +54,8 @@ public class Book {
     private Timestamp publicationYear;
 
     private Integer quantity = 0;
+    
+//    private Integer taken =0;
 
 	@Override
 	public String toString() {
@@ -115,6 +117,7 @@ public class Book {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
+//		this.taken = 0;
 	}
 	
 	@OneToMany(mappedBy = "book", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -125,14 +128,22 @@ public class Book {
         return quantity > 0;
     }
 
-    public void borrow() {
+//    public Integer getTaken() {
+//		return taken;
+//	}
+
+	public void borrow() {
         if (canBorrow()) {
+//        	taken++;
             quantity--;
+            
         }
     }
 
     public void returnBook() {
+//    	taken--;
         quantity++;
+        
     }
 	
 	
